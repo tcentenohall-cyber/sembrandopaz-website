@@ -510,9 +510,9 @@ nav {
 
 /* ---- Footer ---- */
 .site-footer {
-  background-color: var(--color-footer-bg);
+  background-color: var(--color-stat-band);
   color: var(--color-base-2);
-  padding: var(--space-40) var(--space-20);
+  padding: var(--space-30) var(--space-20);
 }
 
 .site-footer a {
@@ -545,17 +545,6 @@ nav {
 
 .footer-meta {
   font-size: var(--font-size-small);
-}
-
-.footer-partners {
-  max-width: var(--wide-width);
-  margin: var(--space-30) auto 0;
-  padding-inline: var(--space-20);
-}
-
-.footer-partners img {
-  max-width: 100%;
-  height: auto;
 }
 
 .newsletter-form {

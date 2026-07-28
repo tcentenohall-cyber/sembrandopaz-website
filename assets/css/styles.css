@@ -622,7 +622,7 @@ nav {
 .page-hero {
   text-align: center;
   padding-block: var(--space-40);
-  background-color: var(--color-base-2);
+  background-color: var(--paper);
 }
 
 .page-hero .lead {
@@ -1025,6 +1025,10 @@ figure {
   text-transform: uppercase;
 }
 
+.donation-split-section {
+  padding-block: var(--space-20);
+}
+
 .donation-split {
   display: flex;
   align-items: flex-start;
@@ -1034,9 +1038,9 @@ figure {
 
 .donation-split-text {
   flex: 0 1 420px;
-  padding-top: var(--space-20);
+  padding-top: var(--space-10);
   font-size: var(--font-size-small);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .donation-split-text p {
@@ -1049,30 +1053,31 @@ figure {
   border: 1px solid var(--line);
   border-radius: 16px;
   box-shadow: var(--shadow-natural);
-  padding: var(--space-30);
+  padding: var(--space-20);
 }
 
 .donation-card h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
   font-family: var(--font-heading);
+  font-size: var(--font-size-large);
   text-align: center;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .donation-card-bird {
-  width: clamp(24px, 3vw, 34px);
+  width: clamp(36px, 4.5vw, 52px);
   height: auto;
   flex: 0 0 auto;
 }
 
 .donation-card-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
   text-align: center;
   color: var(--color-contrast-2);
   font-size: var(--font-size-small);
-  margin-bottom: var(--space-20);
+  margin-bottom: var(--space-10);
 }
 
 @media (max-width: 900px) {

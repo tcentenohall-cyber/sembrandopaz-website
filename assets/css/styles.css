@@ -338,7 +338,6 @@ nav {
 }
 
 /* ---- Nav Submenu (Dropdowns) ---- */
-/* ---- Nav Submenu (Dropdowns) ---- */
 .dropdown {
   position: absolute;
   top: 100%;
@@ -450,6 +449,63 @@ nav {
   border: none; 
   font-size: 24px; 
   cursor: pointer;
+}
+
+@media (max-width: 782px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle {
+    display: block;
+    order: 3;
+  }
+
+  .nav-links,
+  .nav-actions {
+    display: none;
+    width: 100%;
+  }
+
+  nav.is-open .nav-links,
+  nav.is-open .nav-actions {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding-top: 16px;
+    order: 4;
+  }
+
+  .nav-item {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  /* Dropdowns lose their hover-only positioning on touch screens —
+     show them inline, always expanded, under their parent item. */
+  .dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 4px 0 4px 16px;
+    margin-top: 8px;
+  }
+
+  .nav-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+    margin-top: 8px;
+    order: 5;
+  }
 }
 
 /* ---- Footer ---- */

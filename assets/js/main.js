@@ -41,7 +41,7 @@
   }
 
   function initNavToggle() {
-    var nav = document.querySelector(".primary-nav");
+    var nav = document.querySelector(".site-header nav");
     if (!nav) return;
     var toggle = nav.querySelector(".nav-toggle");
     if (!toggle) return;
@@ -55,7 +55,7 @@
   function markActiveLink() {
     var current = document.body.getAttribute("data-page");
     if (!current) return;
-    document.querySelectorAll(".nav-list a[data-page]").forEach(function (link) {
+    document.querySelectorAll(".nav-links a[data-page]").forEach(function (link) {
       if (link.getAttribute("data-page") === current) {
         link.setAttribute("aria-current", "page");
       }

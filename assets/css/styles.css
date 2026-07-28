@@ -904,43 +904,134 @@ figure {
 }
 
 /* ---- What we do ---- */
-.what-we-do h2 {
+.what-we-do-head {
+  max-width: 42rem;
+  margin: 0 auto var(--space-40);
+}
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-eyebrow .eyebrow-line {
+  width: 26px;
+  height: 1px;
+  background-color: var(--color-forest);
+  opacity: 0.45;
+}
+
+.section-eyebrow .eyebrow-text {
+  color: var(--color-forest);
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.what-we-do-head h2 {
   font-family: var(--font-heading);
-  margin-bottom: var(--space-30);
-}
-
-.what-we-do-grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.what-card {
-  padding: var(--space-20);
-  box-shadow: none;
-  border: 1px solid rgba(17, 17, 17, 0.06);
-}
-
-.card-icon {
-  display: block;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
   margin-bottom: var(--space-20);
 }
 
-.icon-green { background-color: var(--color-icon-green); }
-.icon-blue { background-color: var(--color-icon-blue); }
-.icon-tan { background-color: var(--color-icon-tan); }
+.what-we-do-head .lead {
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+.section-divider {
+  display: block;
+  width: 44px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: var(--space-20) auto 0;
+}
+
+.what-we-do-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-30);
+}
+
+.what-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background: var(--color-stat-band);
+  box-shadow: 0 1px 2px rgba(17, 17, 17, 0.04), 0 12px 28px rgba(17, 17, 17, 0.08);
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.what-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px rgba(17, 17, 17, 0.05), 0 20px 36px rgba(17, 17, 17, 0.12);
+}
+
+.what-card-media {
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-placeholder-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-20);
+  text-align: center;
+  color: var(--color-contrast-2);
+  font-size: var(--font-size-small);
+}
+
+.what-card-body {
+  padding: var(--space-30) var(--space-20);
+}
 
 .what-card h3 {
   font-family: var(--font-heading);
   font-size: var(--font-size-medium);
-  margin-bottom: 0.35rem;
+  color: var(--color-base-2);
+  margin-bottom: 0.6rem;
+}
+
+.what-card-rule {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin-bottom: var(--space-20);
 }
 
 .what-card p {
   font-size: var(--font-size-small);
-  color: var(--color-contrast-2);
-  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 var(--space-20);
+  line-height: 1.6;
+}
+
+.what-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-gold);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.what-card-link svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.15s ease;
+}
+
+.what-card-link:hover svg,
+.what-card-link:focus-visible svg {
+  transform: translateX(3px);
 }
 
 /* ---- Quote section ---- */

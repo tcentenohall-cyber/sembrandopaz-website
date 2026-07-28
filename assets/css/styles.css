@@ -732,6 +732,67 @@ figure {
   color: var(--color-blue);
 }
 
+/* ---- Location grid (map + legend replacement) ---- */
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-20);
+}
+
+.location-card {
+  background-color: var(--color-base-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: var(--space-20);
+}
+
+.location-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-medium);
+  margin-bottom: 0.2rem;
+}
+
+.location-dot {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--color-base-2), 0 0 0 4px var(--line);
+}
+
+.dot-forest { background-color: var(--color-forest); }
+.dot-green  { background-color: var(--color-green); }
+.dot-teal   { background-color: var(--color-teal); }
+.dot-yellow { background-color: var(--color-yellow); }
+.dot-ember  { background-color: var(--ember); }
+.dot-blue   { background-color: var(--color-blue); }
+.dot-brown  { background-color: var(--color-brown); }
+
+.location-department {
+  font-size: var(--font-size-small);
+  color: var(--color-contrast-2);
+  margin-bottom: 0.75rem;
+}
+
+.location-card ul {
+  margin: 0;
+  padding-left: 1.1em;
+  font-size: var(--font-size-small);
+  color: var(--color-contrast-2);
+}
+
+.location-card ul li {
+  margin-bottom: 0.2rem;
+}
+
+.location-card ul li:last-child {
+  margin-bottom: 0;
+}
+
 
 /* === home.css ===
    Homepage redesign — hero, stat band, "what we do" cards, quote, CTA band.
@@ -948,4 +1009,91 @@ figure {
 .cta-band p {
   margin-bottom: var(--space-20);
   color: var(--color-contrast);
+}
+
+
+/* === ways-to-give.css ===
+   Donation page — hero subtitle, two-column split (intro text left,
+   donation card right), and the Give Lively widget card. */
+
+.page-hero-subtitle {
+  margin: 0.4rem 0 0;
+  color: var(--color-contrast-2);
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.donation-split {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-40);
+}
+
+.donation-split-text {
+  flex: 0 1 420px;
+  padding-top: var(--space-20);
+  font-size: var(--font-size-small);
+  line-height: 1.65;
+}
+
+.donation-split-text p {
+  font-size: inherit;
+}
+
+.donation-card {
+  flex: 0 0 480px;
+  background-color: var(--color-base-2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-natural);
+  padding: var(--space-30);
+}
+
+.donation-card h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+.donation-card-bird {
+  width: clamp(24px, 3vw, 34px);
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.donation-card-sub {
+  text-align: center;
+  color: var(--color-contrast-2);
+  font-size: var(--font-size-small);
+  margin-bottom: var(--space-20);
+}
+
+@media (max-width: 900px) {
+  .donation-split {
+    flex-direction: column;
+  }
+
+  .donation-card {
+    flex-basis: auto;
+    width: 100%;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .donation-split-text {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .donation-card {
+    padding: var(--space-20);
+  }
 }

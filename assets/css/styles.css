@@ -6,6 +6,7 @@
    ========================================================================== */
 
 :root {
+  --header-height: 0px; /* set dynamically via JS; hero sizing falls back gracefully if unset */
   /* ---- Brand colors ---- */
   --canopy: #1B3A2B;
   --canopy-deep: #122820;
@@ -792,7 +793,12 @@ figure {
   position: relative;
   overflow: hidden;
   background-color: var(--color-base);
-  padding-block: 0 var(--space-30);
+  min-height: 100vh;
+  min-height: calc(100dvh - var(--header-height, 0px));
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-30);
+  box-sizing: border-box;
 }
 
 .hero-arc {
@@ -811,8 +817,8 @@ figure {
 .hero-bird {
   position: absolute;
   top: var(--space-30);
-  right: var(--space-30);
-  width: clamp(56px, 6.5vw, 96px);
+  right: clamp(0.5rem, 3vw, var(--space-40));
+  width: clamp(120px, 13vw, 220px);
   height: auto;
   z-index: 1;
 }
@@ -821,7 +827,17 @@ figure {
   position: relative;
   z-index: 1;
   max-width: min(90vw, 68rem);
-  padding-top: var(--space-40);
+  margin-inline: auto;
+}
+
+.hero-wordmark {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.75rem, 2.1rem + 3.2vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: 0.005em;
 }
 
 .eyebrow {
@@ -876,8 +892,16 @@ figure {
 
 /* ---- Stat band ---- */
 .stat-band {
-  background-color: var(--color-stat-band);
-  padding-block: var(--space-30);
+  position: relative;
+  background: linear-gradient(155deg, var(--color-stat-band) 0%, var(--canopy-deep) 100%);
+  padding-block: var(--space-20);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.stat-band .container {
+  position: relative;
+  z-index: 1;
 }
 
 .stat-band .stat-grid {
@@ -885,22 +909,55 @@ figure {
 }
 
 .stat-band .stat {
+  position: relative;
   margin: 0;
+  padding-inline: var(--space-20);
+}
+
+.stat-band .stat:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 8%;
+  right: 0;
+  height: 84%;
+  width: 1px;
+  background: rgba(247, 243, 233, 0.16);
 }
 
 .stat-band .stat-number {
   display: block;
   font-family: var(--font-heading);
-  font-size: var(--font-size-x-large);
+  font-size: clamp(2.1rem, 2.1rem + 1.4vw, 3.15rem);
   font-weight: 700;
-  color: var(--color-base-2);
+  color: var(--sun-soft);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+}
+
+.stat-band .stat-rule {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: 0.55rem auto;
 }
 
 .stat-band .stat-label {
   display: block;
-  margin: 0.25rem 0 0;
+  margin: 0;
   font-size: var(--font-size-small);
-  color: var(--color-contrast-3);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgba(247, 243, 233, 0.82);
+}
+
+@media (max-width: 700px) {
+  .stat-band .stat:not(:last-child)::after {
+    content: none;
+  }
+
+  .stat-band .stat {
+    padding-block: var(--space-10);
+  }
 }
 
 /* ---- What we do ---- */
@@ -951,8 +1008,10 @@ figure {
 }
 
 .what-we-do-grid {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--space-30);
+  max-width: 68rem;
+  margin-inline: auto;
 }
 
 .what-card {

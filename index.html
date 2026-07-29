@@ -11,6 +11,21 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" data-include="header"></header>
+  <script>
+    (function () {
+      var header = document.querySelector('.site-header');
+      function updateHeaderHeight() {
+        document.documentElement.style.setProperty('--header-height', (header.offsetHeight || 0) + 'px');
+      }
+      updateHeaderHeight();
+      if (header && 'ResizeObserver' in window) {
+        new ResizeObserver(updateHeaderHeight).observe(header);
+      } else {
+        window.addEventListener('load', updateHeaderHeight);
+      }
+      window.addEventListener('resize', updateHeaderHeight);
+    })();
+  </script>
 
   <main id="main">
     <!-- Hero -->
@@ -25,6 +40,7 @@
         loading="eager"
       />
       <div class="container hero-inner">
+        <p class="hero-wordmark text-center">Sembrandopaz</p>
         <p class="eyebrow text-center">Grassroots peacebuilding &middot; Montes de María, Colombia</p>
         <h1 class="text-center">Cultivating peace, rooted in<br class="hero-break"> community.</h1>
         <p class="lead text-center hero-lead">
@@ -44,22 +60,27 @@
         <dl class="stat-grid">
           <div class="stat">
             <dt class="stat-number">20+</dt>
+            <span class="stat-rule" aria-hidden="true"></span>
             <dd class="stat-label">Years of impact</dd>
           </div>
           <div class="stat">
             <dt class="stat-number">300+</dt>
+            <span class="stat-rule" aria-hidden="true"></span>
             <dd class="stat-label">Farmers trained</dd>
           </div>
           <div class="stat">
             <dt class="stat-number">50+</dt>
+            <span class="stat-rule" aria-hidden="true"></span>
             <dd class="stat-label">Leadership teams formed</dd>
           </div>
           <div class="stat">
             <dt class="stat-number">170+</dt>
+            <span class="stat-rule" aria-hidden="true"></span>
             <dd class="stat-label">Community enterprises supported</dd>
           </div>
           <div class="stat">
             <dt class="stat-number">424</dt>
+            <span class="stat-rule" aria-hidden="true"></span>
             <dd class="stat-label">Hectares protected &amp; restored</dd>
           </div>
         </dl>
@@ -81,21 +102,6 @@
         </div>
 
         <div class="card-grid what-we-do-grid">
-          <div class="card what-card">
-            <div class="what-card-media" role="img" aria-label="Grassroots peacebuilding photo placeholder">
-              <span>Photo placeholder</span>
-            </div>
-            <div class="what-card-body">
-              <h3>Grassroots peacebuilding</h3>
-              <span class="what-card-rule" aria-hidden="true"></span>
-              <p>Strengthening local leadership, promoting nonviolence, and building more just and resilient communities.</p>
-              <a class="what-card-link" href="programs/montes-de-maria/index.html">
-                Learn more
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-              </a>
-            </div>
-          </div>
-
           <div class="card what-card">
             <div class="what-card-media" role="img" aria-label="Political culture photo placeholder">
               <span>Photo placeholder</span>

@@ -1,5 +1,21 @@
 /* === variables.css === */
 
+/* ==========================================================================
+   Brand fonts
+   These are referenced everywhere below via --font-body / --font-heading /
+   'Space Mono', but were never actually being loaded by any page (no
+   <link>, no @font-face, no @import existed anywhere in the site) — every
+   visitor was silently seeing generic system fonts instead. @import is used
+   here so the fix is self-contained in the stylesheet and doesn't depend on
+   every page's <head> being edited individually.
+
+   NOTE: @import blocks CSS parsing until the font CSS itself loads, which
+   is a minor performance cost. If/when there's a build step, prefer moving
+   this to <link rel="preconnect"> + <link rel="stylesheet"> tags in each
+   page's <head> instead (see audit §1.1) — that unblocks the request and
+   also lets the browser start it earlier, in parallel with this file.
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
 
 /* ==========================================================================
    Design tokens
@@ -589,10 +605,27 @@ nav {
   min-width: 280px;
 }
 
+/* Rounded, softly elevated editorial photography with a subtle hover zoom */
+.split-media {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: var(--shadow-natural);
+}
+
 .split-media img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.split-media img.img-rounded {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.split:hover .split-media img {
+  transform: scale(1.035);
 }
 
 .split-content {
@@ -621,26 +654,6 @@ nav {
   }
 }
 
-.split-media img.img-rounded {
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
-/* Rounded, softly elevated editorial photography with a subtle hover zoom */
-.split-media {
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: var(--shadow-natural);
-}
-
-.split-media img {
-  transition: transform 0.6s ease;
-}
-
-.split:hover .split-media img {
-  transform: scale(1.035);
-}
-
 .page-hero {
   text-align: center;
   padding-block: var(--space-40);
@@ -661,12 +674,6 @@ nav {
 }
 
 /* rounded / decorative image treatments used across the original design */
-.img-circle {
-  border-radius: 50%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-
 .img-rounded {
   border-radius: 12px;
 }
@@ -1039,92 +1046,6 @@ figure {
   margin: var(--space-20) auto 0;
 }
 
-.what-we-do-grid {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-30);
-  max-width: 68rem;
-  margin-inline: auto;
-}
-
-.what-card {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  background: var(--color-stat-band);
-  box-shadow: 0 1px 2px rgba(17, 17, 17, 0.04), 0 12px 28px rgba(17, 17, 17, 0.08);
-  border: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.what-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 2px 4px rgba(17, 17, 17, 0.05), 0 20px 36px rgba(17, 17, 17, 0.12);
-}
-
-.what-card-media {
-  aspect-ratio: 4 / 3;
-  background-color: var(--color-placeholder-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-20);
-  text-align: center;
-  color: var(--color-contrast-2);
-  font-size: var(--font-size-small);
-}
-
-.what-card-body {
-  padding: var(--space-30) var(--space-20);
-}
-
-.what-card h3 {
-  font-family: var(--font-heading);
-  font-size: var(--font-size-medium);
-  color: var(--color-base-2);
-  margin-bottom: 0.6rem;
-}
-
-.what-card-rule {
-  display: block;
-  width: 32px;
-  height: 2px;
-  background-color: var(--color-gold);
-  margin-bottom: var(--space-20);
-}
-
-.what-card p {
-  font-size: var(--font-size-small);
-  color: rgba(255, 255, 255, 0.82);
-  margin: 0 0 var(--space-20);
-  line-height: 1.6;
-}
-
-.what-card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--color-gold);
-  font-size: var(--font-size-small);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.what-card-link svg {
-  width: 16px;
-  height: 16px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: transform 0.15s ease;
-}
-
-.what-card-link:hover svg,
-.what-card-link:focus-visible svg {
-  transform: translateX(3px);
-}
-
 /* ---- Story cards — photo-led cards used by "Become Part of the
    Story" to invite different kinds of engagement ---- */
 .story-grid {
@@ -1282,15 +1203,6 @@ figure {
 /* === ways-to-give.css ===
    Donation page — hero subtitle, two-column split (intro text left,
    donation card right), and the Give Lively widget card. */
-
-.page-hero-subtitle {
-  margin: 0.4rem 0 0;
-  color: var(--color-contrast-2);
-  font-size: var(--font-size-small);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
 
 .donation-split-section {
   padding-block: var(--space-20);
@@ -1672,171 +1584,6 @@ main section[id] {
   padding-left: var(--space-20);
   color: var(--color-contrast-2);
   font-style: italic;
-}
-
-/* ---- Core values ---- */
-.value-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--space-20);
-  margin-top: var(--space-30);
-}
-
-.value-pill {
-  text-align: center;
-  padding: var(--space-20) var(--space-10);
-  border-radius: 12px;
-  background-color: var(--color-base-2);
-  border: 1px solid var(--line);
-}
-
-.value-pill h4 {
-  font-family: var(--font-heading);
-  color: var(--color-forest);
-  margin: 0 0 0.35rem;
-  font-size: var(--font-size-medium);
-}
-
-.value-pill p {
-  margin: 0;
-  font-size: var(--font-size-small);
-  color: var(--color-contrast-2);
-}
-
-/* ---- Feature grid ("what makes us different") ---- */
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-30);
-  margin-top: var(--space-30);
-}
-
-.feature-card {
-  text-align: center;
-}
-
-.feature-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 0.85rem;
-}
-
-.feature-icon svg {
-  width: 26px;
-  height: 26px;
-  stroke: var(--color-forest);
-  stroke-width: 1.75;
-  fill: none;
-}
-
-.feature-card h3 {
-  font-size: var(--font-size-medium);
-  margin: 0 0 0.35rem;
-}
-
-.feature-card p {
-  font-size: var(--font-size-small);
-  color: var(--color-contrast-2);
-  margin: 0;
-}
-
-/* ---- Organizational structure diagram ---- */
-.org-chart {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  margin-top: var(--space-30);
-}
-
-.org-tier {
-  background-color: var(--color-base-2);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: var(--space-20) var(--space-30);
-  text-align: center;
-  max-width: 24rem;
-  width: 100%;
-}
-
-.org-tier h4 {
-  font-family: var(--font-heading);
-  margin: 0 0 0.25rem;
-  color: var(--color-forest);
-}
-
-.org-tier p {
-  margin: 0;
-  font-size: var(--font-size-small);
-  color: var(--color-contrast-2);
-}
-
-.org-connector {
-  width: 2px;
-  height: var(--space-20);
-  background-color: var(--line);
-}
-
-/* ---- Leadership (large portrait cards with bios) ---- */
-.leader-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--space-30);
-  margin-top: var(--space-30);
-}
-
-.leader-card {
-  text-align: center;
-}
-
-.leader-card img {
-  width: 100%;
-  max-width: 220px;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto var(--space-20);
-  box-shadow: var(--shadow-natural);
-}
-
-.leader-card h3 {
-  font-size: var(--font-size-large);
-  margin: 0 0 0.15rem;
-}
-
-.leader-card .leader-title {
-  display: block;
-  color: var(--color-forest);
-  font-weight: 600;
-  font-size: var(--font-size-small);
-  margin-bottom: 0.6rem;
-}
-
-.leader-card p:last-child {
-  font-size: var(--font-size-small);
-  color: var(--color-contrast-2);
-  max-width: 26rem;
-  margin-inline: auto;
-}
-
-/* ---- Team page: department groups ---- */
-.team-department {
-  margin-bottom: var(--space-40);
-}
-
-.team-department:last-child {
-  margin-bottom: 0;
-}
-
-.team-department h2 {
-  font-family: var(--font-heading);
-  border-bottom: 2px solid var(--color-gold);
-  padding-bottom: 0.5rem;
-  margin-bottom: var(--space-20);
 }
 
 /* ---- Scroll reveal (progressive enhancement; see reveal.js) ---- */

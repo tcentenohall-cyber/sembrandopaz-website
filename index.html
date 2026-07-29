@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body data-page="home">
+  <script>document.documentElement.classList.add('js');</script>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" data-include="header"></header>
@@ -48,7 +49,7 @@
           Colombia&rsquo;s Caribbean region.
         </p>
         <div class="button-row">
-          <a class="btn btn-give" href="get-involved/ways-to-give/index.html">Give today</a>
+          <a class="btn btn-give" href="ways-to-give/index.html">Give today</a>
           <a class="btn btn-outline" href="about/index.html">Our story</a>
         </div>
       </div>
@@ -87,61 +88,143 @@
       </div>
     </section>
 
-    <!-- What we do -->
-    <section class="section what-we-do">
+    <!-- Story sections -->
+    <section class="section split reveal">
+      <div class="split-media">
+        <img
+          src="assets/images/programs/political-culture/hero.jpg"
+          alt="Community members gathered in dialogue in Montes de María"
+          loading="lazy"
+          class="img-rounded"
+        />
+      </div>
+      <div class="split-content">
+        <p class="section-kicker" style="text-align: left;">Community peacebuilding</p>
+        <h2>Peace begins with conversation.</h2>
+        <p>
+          Sembrandopaz strengthens communities across Montes de María through
+          dialogue, leadership development, and honest relationship-building
+          &mdash; bringing neighbors, local leaders, and institutions to the
+          same table to imagine a more just and peaceful future together.
+        </p>
+        <div class="button-row" style="justify-content: flex-start;">
+          <a class="feature-link" href="what-we-do/political-culture/index.html">
+            Our peacebuilding work
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split split--reverse reveal" style="background-color: var(--color-base-2);">
+      <div class="split-media">
+        <img
+          src="assets/images/programs/bird-metaphor-2.jpg"
+          alt="Children drawing and journaling together at Villa Bárbara"
+          loading="lazy"
+          class="img-rounded"
+        />
+      </div>
+      <div class="split-content">
+        <p class="section-kicker" style="text-align: left;">Environmental education</p>
+        <h2>Tomorrow&rsquo;s conservationists are already here.</h2>
+        <p>
+          At Villa Bárbara and the Morrocoy Nature Reserve, children, students,
+          volunteers, and community partners get to know Colombia&rsquo;s
+          tropical dry forest up close &mdash; through programs like School in
+          the Forest and our Ecological Youth Protectors. It&rsquo;s
+          hands-on, curious, and rooted in the idea that caring for the land
+          starts with knowing it.
+        </p>
+        <div class="button-row" style="justify-content: flex-start;">
+          <a class="feature-link" href="what-we-do/inspiring-models/index.html">
+            Learn about conservation
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split reveal">
+      <div class="split-media">
+        <img
+          src="assets/images/programs/economy-for-good-living/photo-3.jpg"
+          alt="Community members planting and watering a young tree in the forest"
+          loading="lazy"
+          class="img-rounded"
+        />
+      </div>
+      <div class="split-content">
+        <p class="section-kicker" style="text-align: left;">Restoration &amp; conservation</p>
+        <h2>Restoring forests, one tree at a time.</h2>
+        <p>
+          Communities across Montes de María are restoring and protecting the
+          tropical dry forest &mdash; one of the world&rsquo;s most endangered
+          ecosystems &mdash; including at the Morrocoy Nature Reserve, where
+          reforestation and conservation work is helping bring the land back
+          for generations still to come.
+        </p>
+        <div class="button-row" style="justify-content: flex-start;">
+          <a class="feature-link" href="what-we-do/inspiring-models/morrocoy-nature-reserve/index.html">
+            Explore Morrocoy
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Become Part of the Story -->
+    <section class="section">
       <div class="container">
-        <div class="what-we-do-head text-center">
+        <div class="what-we-do-head text-center reveal">
           <div class="section-eyebrow">
             <span class="eyebrow-line" aria-hidden="true"></span>
-            <span class="eyebrow-text">Our work</span>
+            <span class="eyebrow-text">Get involved</span>
             <span class="eyebrow-line" aria-hidden="true"></span>
           </div>
-          <h2>What we do</h2>
-          <p class="lead">We partner with communities in Montes de María to build peace, strengthen livelihoods, and care for the land we all depend on.</p>
+          <h2>Become Part of the Story</h2>
+          <p class="lead">There are many ways to connect with Sembrandopaz &mdash; explore what fits, or simply reach out and start a conversation.</p>
           <span class="section-divider" aria-hidden="true"></span>
         </div>
 
-        <div class="card-grid what-we-do-grid">
-          <div class="card what-card">
-            <div class="what-card-media" role="img" aria-label="Political culture photo placeholder">
-              <span>Photo placeholder</span>
+        <div class="card-grid story-grid">
+          <div class="card story-card reveal">
+            <div class="story-card-media">
+              <img src="assets/images/programs/economy-for-good-living/photo-1.jpg" alt="Farmers talking together in a cassava field" loading="lazy" />
             </div>
-            <div class="what-card-body">
-              <h3>Political culture</h3>
-              <span class="what-card-rule" aria-hidden="true"></span>
-              <p>Fostering democracy, human rights, and restorative justice for lasting social change.</p>
-              <a class="what-card-link" href="programs/political-culture/index.html">
+            <div class="story-card-body">
+              <h3>Visit Villa Bárbara</h3>
+              <p>Our experimental farm shows what agroecology and land restoration can look like in the tropical dry forest.</p>
+              <a class="feature-link" href="what-we-do/inspiring-models/index.html#villa-barbara">
                 Learn more
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
               </a>
             </div>
           </div>
 
-          <div class="card what-card">
-            <div class="what-card-media" role="img" aria-label="Economy for good living photo placeholder">
-              <span>Photo placeholder</span>
+          <div class="card story-card reveal">
+            <div class="story-card-media">
+              <img src="assets/images/programs/morrocoy-nature-reserve/reserve-photo.jpg" alt="Visitors walking a forest trail at the Morrocoy Nature Reserve" loading="lazy" />
             </div>
-            <div class="what-card-body">
-              <h3>Economy for good living</h3>
-              <span class="what-card-rule" aria-hidden="true"></span>
-              <p>Supporting agroecology and sustainable livelihoods that improve well-being while protecting our environment.</p>
-              <a class="what-card-link" href="programs/economy-for-good-living/index.html">
+            <div class="story-card-body">
+              <h3>Explore Morrocoy</h3>
+              <p>Over 1,000 acres of protected and restored tropical dry forest, home to endangered wildlife and growing conservation programs.</p>
+              <a class="feature-link" href="what-we-do/inspiring-models/morrocoy-nature-reserve/index.html">
                 Learn more
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
               </a>
             </div>
           </div>
 
-          <div class="card what-card">
-            <div class="what-card-media" role="img" aria-label="Land stewardship photo placeholder">
-              <span>Photo placeholder</span>
+          <div class="card story-card reveal">
+            <div class="story-card-media">
+              <img src="assets/images/get-involved/hero.jpg" alt="Community members preparing food together" loading="lazy" />
             </div>
-            <div class="what-card-body">
-              <h3>Land Stewardship</h3>
-              <span class="what-card-rule" aria-hidden="true"></span>
-              <p>Restoring forests and ecosystems at Morrocoy Nature Reserve and Granja Experimental Villa Bárbara.</p>
-              <a class="what-card-link" href="programs/inspiring-models/morrocoy-nature-reserve/index.html">
-                Learn more
+            <div class="story-card-body">
+              <h3>Volunteer or Join a Delegation</h3>
+              <p>Live and work alongside our team, or bring a group to see grassroots peacebuilding on the ground.</p>
+              <a class="feature-link" href="get-involved/index.html">
+                Get involved
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
               </a>
             </div>
@@ -153,8 +236,8 @@
     <!-- Quote -->
     <section class="section-tight quote-section">
       <div class="container quote-grid">
-        <div class="quote-media" role="img" aria-label="Community photo placeholder">
-          <span>Community photo placeholder</span>
+        <div class="quote-media">
+          <img src="assets/images/impact/photo-1.jpg" alt="A farmer in Montes de María holding freshly picked beans" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
         </div>
         <blockquote class="quote-block">
           <p>&ldquo;Here we are, with our hand on the plough, looking forward, with our hearts full of hope.&rdquo;</p>
@@ -169,7 +252,7 @@
         <h2>Your gift grows a season of peace</h2>
         <p>Every contribution supports communities across Montes de María.</p>
         <div class="button-row">
-          <a class="btn btn-dark" href="get-involved/ways-to-give/index.html">Give now</a>
+          <a class="btn btn-dark" href="ways-to-give/index.html">Give now</a>
         </div>
       </div>
     </section>
@@ -178,5 +261,6 @@
   <footer class="site-footer" data-include="footer"></footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/reveal.js"></script>
 </body>
 </html>

@@ -609,6 +609,38 @@ nav {
   }
 }
 
+/* ---- Split reverse modifier — alternates media/content order for
+   a sequence of feature rows (e.g. homepage story sections) ---- */
+.split--reverse {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 782px) {
+  .split--reverse {
+    flex-direction: column;
+  }
+}
+
+.split-media img.img-rounded {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* Rounded, softly elevated editorial photography with a subtle hover zoom */
+.split-media {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: var(--shadow-natural);
+}
+
+.split-media img {
+  transition: transform 0.6s ease;
+}
+
+.split:hover .split-media img {
+  transform: scale(1.035);
+}
+
 .page-hero {
   text-align: center;
   padding-block: var(--space-40);
@@ -1093,6 +1125,102 @@ figure {
   transform: translateX(3px);
 }
 
+/* ---- Story cards — photo-led cards used by "Become Part of the
+   Story" to invite different kinds of engagement ---- */
+.story-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.story-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 12px 18px rgba(0, 0, 0, 0.16);
+}
+
+.story-card-media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.story-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.story-card:hover .story-card-media img {
+  transform: scale(1.06);
+}
+
+.story-card-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: var(--space-20) var(--space-20) var(--space-30);
+}
+
+.story-card-body h3 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-large);
+  margin: 0;
+}
+
+.story-card-body p {
+  flex: 1 1 auto;
+  margin: 0 0 0.3rem;
+  color: var(--color-contrast-2);
+  font-size: var(--font-size-small);
+  line-height: 1.6;
+}
+
+.story-card-body .btn {
+  align-self: flex-start;
+  margin-top: 0.2rem;
+}
+
+/* Elegant arrow-link CTA (replaces flat blue buttons in story cards
+   and homepage feature/split sections) */
+.feature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--color-gold);
+  font-size: var(--font-size-medium);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.feature-link svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.15s ease;
+}
+
+.feature-link:hover,
+.feature-link:focus-visible {
+  color: var(--color-forest);
+}
+
+.feature-link:hover svg,
+.feature-link:focus-visible svg {
+  transform: translateX(4px);
+}
+
+
 /* ---- Quote section ---- */
 .quote-grid {
   display: grid;
@@ -1544,4 +1672,192 @@ main section[id] {
   padding-left: var(--space-20);
   color: var(--color-contrast-2);
   font-style: italic;
+}
+
+/* ---- Core values ---- */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-20);
+  margin-top: var(--space-30);
+}
+
+.value-pill {
+  text-align: center;
+  padding: var(--space-20) var(--space-10);
+  border-radius: 12px;
+  background-color: var(--color-base-2);
+  border: 1px solid var(--line);
+}
+
+.value-pill h4 {
+  font-family: var(--font-heading);
+  color: var(--color-forest);
+  margin: 0 0 0.35rem;
+  font-size: var(--font-size-medium);
+}
+
+.value-pill p {
+  margin: 0;
+  font-size: var(--font-size-small);
+  color: var(--color-contrast-2);
+}
+
+/* ---- Feature grid ("what makes us different") ---- */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-30);
+  margin-top: var(--space-30);
+}
+
+.feature-card {
+  text-align: center;
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.85rem;
+}
+
+.feature-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--color-forest);
+  stroke-width: 1.75;
+  fill: none;
+}
+
+.feature-card h3 {
+  font-size: var(--font-size-medium);
+  margin: 0 0 0.35rem;
+}
+
+.feature-card p {
+  font-size: var(--font-size-small);
+  color: var(--color-contrast-2);
+  margin: 0;
+}
+
+/* ---- Organizational structure diagram ---- */
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-top: var(--space-30);
+}
+
+.org-tier {
+  background-color: var(--color-base-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: var(--space-20) var(--space-30);
+  text-align: center;
+  max-width: 24rem;
+  width: 100%;
+}
+
+.org-tier h4 {
+  font-family: var(--font-heading);
+  margin: 0 0 0.25rem;
+  color: var(--color-forest);
+}
+
+.org-tier p {
+  margin: 0;
+  font-size: var(--font-size-small);
+  color: var(--color-contrast-2);
+}
+
+.org-connector {
+  width: 2px;
+  height: var(--space-20);
+  background-color: var(--line);
+}
+
+/* ---- Leadership (large portrait cards with bios) ---- */
+.leader-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-30);
+  margin-top: var(--space-30);
+}
+
+.leader-card {
+  text-align: center;
+}
+
+.leader-card img {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto var(--space-20);
+  box-shadow: var(--shadow-natural);
+}
+
+.leader-card h3 {
+  font-size: var(--font-size-large);
+  margin: 0 0 0.15rem;
+}
+
+.leader-card .leader-title {
+  display: block;
+  color: var(--color-forest);
+  font-weight: 600;
+  font-size: var(--font-size-small);
+  margin-bottom: 0.6rem;
+}
+
+.leader-card p:last-child {
+  font-size: var(--font-size-small);
+  color: var(--color-contrast-2);
+  max-width: 26rem;
+  margin-inline: auto;
+}
+
+/* ---- Team page: department groups ---- */
+.team-department {
+  margin-bottom: var(--space-40);
+}
+
+.team-department:last-child {
+  margin-bottom: 0;
+}
+
+.team-department h2 {
+  font-family: var(--font-heading);
+  border-bottom: 2px solid var(--color-gold);
+  padding-bottom: 0.5rem;
+  margin-bottom: var(--space-20);
+}
+
+/* ---- Scroll reveal (progressive enhancement; see reveal.js) ---- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js .story-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
+.js .story-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

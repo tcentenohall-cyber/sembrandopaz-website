@@ -398,6 +398,14 @@ nav {
 .dropdown a::after {
   display: none !important; /* Prevents main nav hover underline inside dropdown */
 }
+
+/* Mobile-only accordion toggle for submenus — a checkbox-driven
+   disclosure (no JS dependency) so a tap reveals just the submenu the
+   person asked for, instead of every submenu being open at once.
+   Hidden entirely on desktop, where hover already does this job. */
+.dropdown-toggle {
+  display: none;
+}
 /* ---------- NAV ACTIONS & LANG TOGGLE ---------- */
 .nav-actions {
   display: flex;
@@ -461,10 +469,17 @@ nav {
 }
 
 .nav-toggle {
-  display: none; 
-  background: none; 
-  border: none; 
-  font-size: 24px; 
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
   cursor: pointer;
 }
 
@@ -474,7 +489,7 @@ nav {
   }
 
   .nav-toggle {
-    display: block;
+    display: flex;
     order: 3;
   }
 
@@ -502,16 +517,68 @@ nav {
     padding: 10px 0;
   }
 
-  /* Dropdowns lose their hover-only positioning on touch screens —
-     show them inline, always expanded, under their parent item. */
+  /* Items with a submenu become a wrapping row: the link takes the
+     available space, the toggle sits flush right as a 44px touch
+     target, and the submenu (when revealed) drops to its own line. */
+  .nav-item.has-dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .nav-item-link {
+    flex: 1 1 auto;
+  }
+
+  .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .dropdown-toggle svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s ease;
+  }
+
+  .dropdown-toggle-checkbox:checked ~ .dropdown-toggle svg {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-toggle-checkbox:focus-visible ~ .dropdown-toggle {
+    outline: 2px solid var(--ember);
+    outline-offset: -2px;
+    border-radius: 4px;
+  }
+
+  /* Collapsed by default; each submenu only opens when its own
+     checkbox is checked, so tapping "About" no longer dumps every
+     submenu onto the screen at once. */
   .dropdown {
     position: static;
     opacity: 1;
     visibility: visible;
     transform: none;
     box-shadow: none;
+    flex-basis: 100%;
+    display: none;
     padding: 4px 0 4px 16px;
     margin-top: 8px;
+  }
+
+  .dropdown-toggle-checkbox:checked ~ .dropdown {
+    display: flex;
   }
 
   .nav-actions {

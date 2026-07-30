@@ -6,8 +6,12 @@
 
     <div class="nav-links">
   <!-- Who We Are -->
-  <div class="nav-item">
-    <a href="{{root}}about/index.html" data-page="about">About</a>
+  <div class="nav-item has-dropdown">
+    <a class="nav-item-link" href="{{root}}about/index.html" data-page="about">About</a>
+    <input type="checkbox" id="nav-toggle-about" class="dropdown-toggle-checkbox visually-hidden" aria-label="Toggle About submenu" />
+    <label for="nav-toggle-about" class="dropdown-toggle" aria-hidden="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+    </label>
 
     <div class="dropdown">
       <a href="{{root}}about/index.html">About</a>
@@ -19,9 +23,13 @@
   </div>
 
   <!-- What We Do (With 4 Submenu Links) -->
-  <div class="nav-item">
-    <a href="{{root}}what-we-do/index.html" data-page="what-we-do">What we do</a>
-    
+  <div class="nav-item has-dropdown">
+    <a class="nav-item-link" href="{{root}}what-we-do/index.html" data-page="what-we-do">What we do</a>
+    <input type="checkbox" id="nav-toggle-what-we-do" class="dropdown-toggle-checkbox visually-hidden" aria-label="Toggle What we do submenu" />
+    <label for="nav-toggle-what-we-do" class="dropdown-toggle" aria-hidden="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+    </label>
+
     <div class="dropdown">
       <a href="{{root}}what-we-do/montes-de-maria/index.html">Montes de María</a>
       <a href="{{root}}what-we-do/political-culture/index.html">Political Culture</a>

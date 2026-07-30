@@ -1331,7 +1331,12 @@ figure {
     flex-direction: column;
   }
 
+  /* Lead with the donation widget on mobile so a smooth, easy gift is
+     the first thing visible — no scrolling past the intro copy first.
+     Visual order only; markup order (and reading/tab order) is
+     unchanged. */
   .donation-card {
+    order: -1;
     flex-basis: auto;
     width: 100%;
     max-width: 480px;
@@ -1339,7 +1344,7 @@ figure {
   }
 
   .donation-split-text {
-    padding-top: 0;
+    padding-top: var(--space-30);
   }
 }
 

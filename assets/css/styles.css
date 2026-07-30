@@ -1655,62 +1655,59 @@ main section[id] {
 /* ---- Trust section — "Built Through Collaboration" ----
    A distinct, understated banner band for partner/collaborator marks —
    set apart from the cream page background with hairline top/bottom
-   borders and a slightly cooler, muted tone, in keeping with the
-   grayscale treatment of the logos themselves. Reuses .section,
+   borders and a slightly cooler, muted tone. Reuses .section,
    .section-intro and .feature-link; adds only the minimal pieces
-   needed for the logo grid and its link. */
+   needed for the logo row and its link. */
 .trust-section {
   background-color: var(--color-base-2);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
+/* Wider measure than the default .section-intro (42rem) so the
+   paragraph breaks into three balanced lines instead of four
+   near-equal ones — a short centered block reads as an intentional
+   statement rather than a dense rectangle of text. */
+.trust-section .section-intro {
+  max-width: 50rem;
+}
+
+.trust-section .section-intro p {
+  text-wrap: pretty;
+}
+
+/* Logos are sized by their own content (not forced into equal-width
+   grid columns), so a narrow mark like UNDP and a wide wordmark like
+   Ford Foundation both render at the same height without wasted or
+   cramped space — this is what lets all eight sit on one line at
+   typical desktop widths. flex-wrap keeps it responsive: rows form
+   automatically as space runs out on narrower screens. */
 .logo-banner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: var(--space-30) var(--space-40);
+  column-gap: clamp(1.75rem, 1.2rem + 2vw, var(--space-40));
+  row-gap: var(--space-30);
   margin-top: var(--space-40);
 }
 
-/* Placeholder tile — swap in a logo <img> later (SVG/PNG) with no CSS
-   change; the flex-centering and grayscale filter apply to either.
-   A faint diagonal texture (not text, not a logo) keeps each tile
-   legible as an intentional placeholder against the banner background,
-   rather than reading as empty/missing space. */
 .logo-item {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: 152px;
-  height: 68px;
-  background-color: var(--color-base);
-  background-image: repeating-linear-gradient(
-    135deg,
-    rgba(34, 40, 31, 0.05) 0,
-    rgba(34, 40, 31, 0.05) 1px,
-    transparent 1px,
-    transparent 10px
-  );
-  border: 1px solid var(--color-accent);
-  border-radius: 8px;
-  filter: grayscale(100%);
-  transition: border-color 0.2s ease;
-}
-
-.logo-item:hover,
-.logo-item:focus-within {
-  border-color: var(--color-contrast-2);
+  height: 56px;
 }
 
 .logo-item img {
-  max-width: 72%;
-  max-height: 56%;
+  height: 100%;
+  width: auto;
+  max-width: 200px;
   object-fit: contain;
   filter: grayscale(100%);
-  opacity: 0.75;
-  transition: opacity 0.2s ease, filter 0.2s ease;
+  opacity: 0.55;
+  transition: opacity 0.25s ease, filter 0.25s ease;
 }
 
 .logo-item:hover img,
@@ -1736,12 +1733,16 @@ main section[id] {
 
 @media (max-width: 700px) {
   .logo-banner {
-    gap: var(--space-20) var(--space-30);
+    column-gap: var(--space-20);
+    row-gap: var(--space-20);
     margin-top: var(--space-30);
   }
 
   .logo-item {
-    width: 122px;
-    height: 56px;
+    height: 42px;
+  }
+
+  .logo-item img {
+    max-width: 140px;
   }
 }
